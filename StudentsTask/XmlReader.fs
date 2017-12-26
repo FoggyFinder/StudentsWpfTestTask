@@ -6,12 +6,18 @@ open FSharp.Data
 
 let [<Literal>] Sample = """
 <Students>
-<Student Id="125">
-    <FirstName>firstTest</FirstName><Last>lastname</Last><Age>19</Age><Gender>true</Gender>
-</Student>
-<Student Id="125">
-    <FirstName>firstTest</FirstName><Last>lastname</Last><Age>19</Age><Gender>true</Gender>
-</Student>
+  <Student Id="0">
+    <FirstName>Robert</FirstName>
+    <Last>Jarman</Last>
+    <Age>21</Age>
+    <Gender>0</Gender>
+  </Student>
+  <Student Id="2">
+    <FirstName>Leona</FirstName>
+    <Last>Menders</Last>
+    <Age>20</Age>
+    <Gender>1</Gender>
+  </Student>
 </Students>"""
 
 type Students = XmlProvider<Sample>
