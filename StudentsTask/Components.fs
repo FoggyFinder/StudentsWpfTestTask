@@ -92,6 +92,7 @@ module AppComponent =
             |> Observable.map (Seq.singleton >> Remove)
             Bind.Explicit.createCommandParam "RemoveAll" source
             |> Observable.map (Seq.cast >> Remove)
+            Bind.Explicit.createMessageCommand "Save" Save source
         ]
 
     let appComponent = Component.fromExplicit appBind

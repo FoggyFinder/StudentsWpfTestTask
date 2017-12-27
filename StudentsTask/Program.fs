@@ -26,3 +26,4 @@ let main _ =
 
     Framework.RunApplication (navigator, app)
     1
+
