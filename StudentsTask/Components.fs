@@ -20,7 +20,7 @@ module StudentComponent =
         [Female; Male]
         |> Signal.constant
         |> Bind.Explicit.oneWay source "Genders" 
-
+        
         let first = 
             mstudent
             |> Signal.map (fun student -> student.FirstName)
@@ -87,10 +87,14 @@ module AppComponent =
         |> Observable.subscribe(fun _ -> defaultStudent |> AddStudent |> nav)
         |> source.AddDisposable
 
+        let hasValues =
+            model
+            |> Signal.map (Seq.isEmpty >> not)
+
         [
             Bind.Explicit.createCommandParam "Remove" source
             |> Observable.map (Seq.singleton >> Remove)
-            Bind.Explicit.createCommandParam "RemoveAll" source
+            Bind.Explicit.createCommandParamChecked "RemoveAll" hasValues source
             |> Observable.map (Seq.cast >> Remove)
             Bind.Explicit.createMessageCommand "Save" Save source
         ]
@@ -103,7 +107,8 @@ module AppComponent =
         let getId = 
             function
             |[] -> 0
-            |x -> x |> List.map (fun x -> x.ID) |> List.max |> (+) 1
+            |x -> 
+                x |> List.maxBy (fun x -> x.ID) |> fun x -> x.ID + 1
         let update message model =
             match message with
             |Add student -> 
@@ -120,6 +125,7 @@ module AppComponent =
             |Save ->
                 XmlReader.writeToFile path model
                 model
+
         let navigation = Dispatcher<CollectionNav>()
 
         Framework.application model update appComponent nav
