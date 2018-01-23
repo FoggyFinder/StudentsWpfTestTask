@@ -14,40 +14,16 @@
         <ListView
             Name="lw"
             AlternationCount="2"
-            ItemsSource="{Binding Students}">
-            <ListView.Style>
-                <Style TargetType="ListView">
-                    <Style.Triggers>
-                        <Trigger Property="HasItems" Value="False">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="ListView">
-                                        <TextBlock
-                                            Margin="5"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            FontSize="16"
-                                            Text="Список пуст" />
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </ListView.Style>
-            <ListView.Resources>
-                <AlternationConverter x:Key="altconvBackground">
-                    <SolidColorBrush Color="Orange" />
-                    <SolidColorBrush Color="LightGray" />
-                </AlternationConverter>
-            </ListView.Resources>
+            ItemContainerStyle="{StaticResource customListViewItemStyle}"
+            ItemsSource="{Binding Students}"
+            Style="{StaticResource emptyListViewStyle}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn
                         Width="40"
                         DisplayMemberBinding="{Binding ID}"
                         Header="ID" />
-                    <GridViewColumn Width="250" Header="Имя Фамилия">
+                    <GridViewColumn Width="230" Header="Имя Фамилия">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock>
@@ -62,7 +38,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn
-                        Width="55"
+                        Width="70"
                         DisplayMemberBinding="{Binding Age, Converter={StaticResource ageConverter}}"
                         Header="Возраст" />
                     <GridViewColumn
@@ -95,26 +71,6 @@
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
-            <ListView.ItemContainerStyle>
-                <Style TargetType="{x:Type ListViewItem}">
-                    <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Self}, Path=(ItemsControl.AlternationIndex), Converter={StaticResource altconvBackground}}" />
-                    <Setter Property="HorizontalContentAlignment" Value="Center" />
-                    <Setter Property="Foreground" Value="Black" />
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Background" Value="Transparent" />
-                            <Setter Property="FontSize" Value="16" />
-                        </Trigger>
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="IsSelected" Value="true" />
-                                <Condition Property="Selector.IsSelectionActive" Value="true" />
-                            </MultiTrigger.Conditions>
-                            <Setter Property="Background" Value="Green" />
-                        </MultiTrigger>
-                    </Style.Triggers>
-                </Style>
-            </ListView.ItemContainerStyle>
         </ListView>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>

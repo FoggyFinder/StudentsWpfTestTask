@@ -22,22 +22,25 @@
                 <ColumnDefinition Width="2*" />
                 <ColumnDefinition Width="3*" />
             </Grid.ColumnDefinitions>
-
             <TextBlock
                 Grid.Row="0"
                 Grid.Column="0"
+                HorizontalAlignment="Center"
                 Text="Имя" />
             <TextBlock
                 Grid.Row="1"
                 Grid.Column="0"
+                HorizontalAlignment="Center"
                 Text="Фамилия" />
             <TextBlock
                 Grid.Row="2"
                 Grid.Column="0"
+                HorizontalAlignment="Center"
                 Text="Возраст" />
             <TextBlock
                 Grid.Row="3"
                 Grid.Column="0"
+                HorizontalAlignment="Center"
                 Text="Пол" />
             <TextBox
                 Grid.Row="0"

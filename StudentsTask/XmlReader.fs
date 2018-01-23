@@ -34,7 +34,7 @@ let readFromFile (path : string) =
     |> fun x -> x.Students
     |> Seq.map toCoreStudent
 
-let toBool = function | Male -> false |Female -> true
+let toBool = function | Male -> false | Female -> true
 
 let fromCoreStudent (student:Student) = 
     Students.Student(student.ID, student.FirstName, student.LastName, student.Age, toBool student.Gender)
