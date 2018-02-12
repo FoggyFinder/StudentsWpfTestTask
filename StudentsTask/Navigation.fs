@@ -4,5 +4,5 @@ open CoreType
 
 type CollectionNav =
     | ViewStudents
-    | AddStudent of Student
+    | AddStudent
     | EditStudent of Student

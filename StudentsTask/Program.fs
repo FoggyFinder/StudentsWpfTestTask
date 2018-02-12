@@ -4,26 +4,51 @@ open Views
 open Gjallarhorn.Bindable.Framework
 open Gjallarhorn.Wpf
 open Navigation
-open Components.AppComponent
-open Components.StudentComponent
+open AppComponent
+open StudentComponent
+
+let getId = 
+    function
+    |[] -> 0
+    |x -> 
+        x |> List.maxBy (fun x -> x.ID) |> fun x -> x.ID + 1
 
 [<STAThread>]
 [<EntryPoint>]
 let main _ = 
+    let path = "students.xml"
+    let model : Student list = XmlReader.readFromFile path |> List.ofSeq
+
     let updateNavigation (_ : ApplicationCore<Student list,_,_>) request : UIFactory<Student list,_,_> =  
         match request with
         |ViewStudents ->
            Navigation.Page.fromComponent StudentsControl id appComponent id
-        |AddStudent x ->
-            Navigation.Page.dialog StudentDialog (fun _ -> x) studentComponent Add
+        |AddStudent ->
+            Navigation.Page.dialog StudentDialog (fun _ -> defaultStudent) studentComponent Add
         |EditStudent x ->
             Navigation.Page.dialog StudentDialog (fun _ -> x) studentComponent Edit
+
+    let update message model =
+        match message with
+        |Add student -> 
+            model
+            |> getId
+            |> editId student
+            |> add model
+        |Edit newValue ->
+            model
+            |> List.map
+                (fun student -> if student.ID = newValue.ID then newValue else student)
+        |Remove students -> 
+            model 
+            |> List.filter (fun student -> Seq.contains student students |> not)
+        |Save ->
+            XmlReader.writeToFile path model
+            model
             
-    let navigator = 
-        Navigation.singlePage App MainWin ViewStudents updateNavigation
+    let nav = Navigation.singlePage App MainWin ViewStudents updateNavigation
+    let app = Framework.application model update appComponent nav.Navigate
 
-    let app = app navigator.Navigate
+    Framework.RunApplication(nav, app)
 
-    Framework.RunApplication (navigator, app)
     1
-

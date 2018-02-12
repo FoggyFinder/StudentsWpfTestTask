@@ -60,7 +60,8 @@
     <Compile Include="CoreType.fs" />
     <Compile Include="XmlReader.fs" />
     <Compile Include="Navigation.fs" />
-    <Compile Include="Components.fs" />
+    <Compile Include="StudentComponent.fs" />
+    <Compile Include="AppComponent.fs" />
     <Compile Include="Converters.fs" />
     <Compile Include="Views.fs" />
     <Compile Include="Program.fs" />

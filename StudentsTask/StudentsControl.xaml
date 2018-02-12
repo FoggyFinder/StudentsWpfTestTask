@@ -9,7 +9,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <ListView
             Name="lw"
@@ -79,24 +78,25 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button
-                Grid.Column="1"
+                Grid.Column="0"
                 Margin="5"
                 HorizontalAlignment="Center"
                 Command="{Binding RemoveAll}"
                 CommandParameter="{Binding ElementName=lw, Path=SelectedItems}"
                 Content="Удалить" />
             <Button
-                Grid.Column="2"
+                Grid.Column="1"
                 Margin="5"
                 HorizontalAlignment="Center"
                 Command="{Binding Add}"
                 Content="Добавить" />
+            <Button
+                Grid.Column="2"
+                Margin="5"
+                HorizontalAlignment="Right"
+                Command="{Binding Save}"
+                Content="Сохранить" />
         </Grid>
-        <Button
-            Grid.Row="2"
-            Margin="5"
-            HorizontalAlignment="Right"
-            Command="{Binding Save}"
-            Content="Сохранить" />
+
     </Grid>
 </UserControl>
