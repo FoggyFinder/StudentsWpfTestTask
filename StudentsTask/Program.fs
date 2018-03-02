@@ -17,7 +17,7 @@ let getId =
 [<EntryPoint>]
 let main _ = 
     let path = "students.xml"
-    let model : Student list = XmlReader.readFromFile path |> List.ofSeq
+    let model : Student list = XmlWorker.readFromFile path |> List.ofSeq
 
     let updateNavigation (_ : ApplicationCore<Student list,_,_>) request : UIFactory<Student list,_,_> =  
         match request with
@@ -37,13 +37,12 @@ let main _ =
             |> add model
         |Edit newValue ->
             model
-            |> List.map
-                (fun student -> if student.ID = newValue.ID then newValue else student)
+            |> edit newValue
         |Remove students -> 
-            model 
-            |> List.filter (fun student -> Seq.contains student students |> not)
+            model
+            |> remove students
         |Save ->
-            XmlReader.writeToFile path model
+            XmlWorker.writeToFile path model
             model
             
     let nav = Navigation.singlePage App MainWin ViewStudents updateNavigation

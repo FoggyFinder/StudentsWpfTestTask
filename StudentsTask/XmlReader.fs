@@ -1,4 +1,4 @@
-﻿module XmlReader
+﻿module XmlWorker
 
 open CoreType
 
