@@ -48,6 +48,3 @@ let toXmlStudents data =
 let writeToFile (path : string) data =
     let students = data |> toXmlStudents
     students.XElement.Save path
-
-
-

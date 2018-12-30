@@ -32,7 +32,7 @@ type AgeToStringConverter() =
                sprintf "%A лет" age
            else
                match age % 10 with
-               |1 -> sprintf "%A год" age
-               |m when m = 0 || m >= 5 
+               | 1 -> sprintf "%A год" age
+               | m when m = 0 || m >= 5 
                   -> sprintf "%A лет" age
-               |_ -> sprintf "%A года" age
+               | _ -> sprintf "%A года" age

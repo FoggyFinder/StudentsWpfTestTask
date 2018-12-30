@@ -7,15 +7,15 @@ open Gjallarhorn
 open Gjallarhorn.Validation
 
 type StudentUpdate = 
-    |FirstName of string
-    |LastName of string
-    |Age of int 
-    |Gender of Gender
+    | FirstName of string
+    | LastName of string
+    | Age of int 
+    | Gender of Gender
 
 let studentBind _ source model = 
     let mstudent = model |> Signal.get |> Mutable.create
 
-    [Female; Male]
+    [ Female; Male ]
     |> Signal.constant
     |> Bind.Explicit.oneWay source "Genders" 
         
@@ -53,7 +53,7 @@ let studentBind _ source model =
         | Age age -> Mutable.step (editAge age) mstudent
         | Gender gender -> Mutable.step (editGender gender) mstudent
 
-    [last; age; gender]
+    [ last; age; gender ]
     |> List.fold Observable.merge first
     |> Observable.subscribe upd
     |> source.AddDisposable

@@ -5,13 +5,18 @@ open Navigation
 open Gjallarhorn.Bindable
 
 type AppMessages = 
-    |Add of Student
-    |Edit of Student
-    |Remove of Student seq
-    |Save 
+    | Add of Student
+    | Edit of Student
+    | Remove of Student seq
+    | Save 
 
-let defaultStudent =  
-        {ID = -1 ; FirstName = ""; LastName = ""; Age = 0; Gender = Male}
+let defaultStudent = { 
+    ID = -1 
+    FirstName = ""
+    LastName = ""
+    Age = 0
+    Gender = Male
+}
 
 type AppViewModel =
     {
