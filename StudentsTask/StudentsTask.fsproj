@@ -9,7 +9,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>StudentsTask</RootNamespace>
     <AssemblyName>StudentsTask</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
     <Name>StudentsTask</Name>
@@ -76,10 +76,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core">
-      <HintPath>..\packages\FSharp.Core.4.2.3\lib\net45\FSharp.Core.dll</HintPath>
+      <HintPath>..\packages\FSharp.Core.4.5.4\lib\net45\FSharp.Core.dll</HintPath>
     </Reference>
     <Reference Include="FSharp.Data">
-      <HintPath>..\packages\FSharp.Data.2.4.3\lib\net45\FSharp.Data.dll</HintPath>
+      <HintPath>..\packages\FSharp.Data.3.0.0\lib\net45\FSharp.Data.dll</HintPath>
     </Reference>
     <Reference Include="FsXaml.Wpf">
       <HintPath>..\packages\FsXaml.Wpf.3.1.6\lib\net45\FsXaml.Wpf.dll</HintPath>
@@ -88,13 +88,13 @@
       <HintPath>..\packages\FsXaml.Wpf.3.1.6\lib\net45\FsXaml.Wpf.TypeProvider.dll</HintPath>
     </Reference>
     <Reference Include="Gjallarhorn">
-      <HintPath>..\packages\Gjallarhorn.1.1.0\lib\portable-net45+win8+wp8+wpa81\Gjallarhorn.dll</HintPath>
+      <HintPath>..\packages\Gjallarhorn.1.2.3\lib\netstandard2.0\Gjallarhorn.dll</HintPath>
     </Reference>
     <Reference Include="Gjallarhorn.Bindable">
-      <HintPath>..\packages\Gjallarhorn.Bindable.1.0.0-beta5\lib\portable-net45+win8+wp8+wpa81\Gjallarhorn.Bindable.dll</HintPath>
+      <HintPath>..\packages\Gjallarhorn.Bindable.1.0.0-beta7\lib\netstandard2.0\Gjallarhorn.Bindable.dll</HintPath>
     </Reference>
     <Reference Include="Gjallarhorn.Bindable.Wpf">
-      <HintPath>..\packages\Gjallarhorn.Bindable.Wpf.1.0.0-beta5\lib\net45\Gjallarhorn.Bindable.Wpf.dll</HintPath>
+      <HintPath>..\packages\Gjallarhorn.Bindable.Wpf.1.0.0-beta7\lib\netstandard2.0\Gjallarhorn.Bindable.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="PresentationCore" />
