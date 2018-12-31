@@ -3,6 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{34D3BF36-D9F6-437C-AA76-D0B452A2525F}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+	EndProjectSection
+EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "StudentsTask", "StudentsTask\StudentsTask.fsproj", "{AB380300-90B8-4FE6-98B1-C29BEC8881BC}"
 EndProject
 Global

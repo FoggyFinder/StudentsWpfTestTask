@@ -69,33 +69,12 @@
     <Resource Include="MainWindow.xaml" />
     <Resource Include="StudentDialog.xaml" />
     <Resource Include="StudentsControl.xaml" />
-    <Content Include="packages.config" />
+    <Content Include="paket.references" />
     <Content Include="students.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="FSharp.Core">
-      <HintPath>..\packages\FSharp.Core.4.5.4\lib\net45\FSharp.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="FSharp.Data">
-      <HintPath>..\packages\FSharp.Data.3.0.0\lib\net45\FSharp.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="FsXaml.Wpf">
-      <HintPath>..\packages\FsXaml.Wpf.3.1.6\lib\net45\FsXaml.Wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="FsXaml.Wpf.TypeProvider">
-      <HintPath>..\packages\FsXaml.Wpf.3.1.6\lib\net45\FsXaml.Wpf.TypeProvider.dll</HintPath>
-    </Reference>
-    <Reference Include="Gjallarhorn">
-      <HintPath>..\packages\Gjallarhorn.1.2.3\lib\netstandard2.0\Gjallarhorn.dll</HintPath>
-    </Reference>
-    <Reference Include="Gjallarhorn.Bindable">
-      <HintPath>..\packages\Gjallarhorn.Bindable.1.0.0-beta7\lib\netstandard2.0\Gjallarhorn.Bindable.dll</HintPath>
-    </Reference>
-    <Reference Include="Gjallarhorn.Bindable.Wpf">
-      <HintPath>..\packages\Gjallarhorn.Bindable.Wpf.1.0.0-beta7\lib\netstandard2.0\Gjallarhorn.Bindable.Wpf.dll</HintPath>
-    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -115,4 +94,75 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="FSharp.Core">
+          <HintPath>..\packages\FSharp.Core\lib\net45\FSharp.Core.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="FSharp.Data">
+          <HintPath>..\packages\FSharp.Data\lib\net45\FSharp.Data.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3' Or $(TargetFrameworkVersion) == 'v4.7' Or $(TargetFrameworkVersion) == 'v4.7.1' Or $(TargetFrameworkVersion) == 'v4.7.2')">
+      <ItemGroup>
+        <Reference Include="FsXaml.Wpf">
+          <HintPath>..\packages\FsXaml.Wpf\lib\net45\FsXaml.Wpf.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="FsXaml.Wpf.TypeProvider">
+          <HintPath>..\packages\FsXaml.Wpf\lib\net45\FsXaml.Wpf.TypeProvider.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Gjallarhorn">
+          <HintPath>..\packages\Gjallarhorn\lib\netstandard2.0\Gjallarhorn.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Gjallarhorn.Bindable">
+          <HintPath>..\packages\Gjallarhorn.Bindable\lib\netstandard2.0\Gjallarhorn.Bindable.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'">
+      <ItemGroup>
+        <Reference Include="Gjallarhorn.Bindable.Wpf">
+          <HintPath>..\packages\Gjallarhorn.Bindable.Wpf\lib\netstandard2.0\Gjallarhorn.Bindable.Wpf.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
 </Project>

@@ -1,0 +1,15 @@
+NUGET
+  remote: https://api.nuget.org/v3/index.json
+    FSharp.Core (4.5.4) - restriction: >= net472
+    FSharp.Data (3.0) - restriction: >= net472
+      FSharp.Core (>= 4.0.0.1) - restriction: >= net45
+    FsXaml.Wpf (3.1.6) - restriction: >= net45
+    Gjallarhorn (1.2.3) - restriction: >= net472
+      FSharp.Core (>= 4.3.4)
+    Gjallarhorn.Bindable (1.0.0-beta7) - restriction: >= net472
+      FSharp.Core (>= 4.3 < 5.0)
+      Gjallarhorn (>= 1.2.1)
+    Gjallarhorn.Bindable.Wpf (1.0.0-beta7) - restriction: >= net472
+      FSharp.Core (>= 4.3 < 5.0)
+      Gjallarhorn (>= 1.2.1)
+      Gjallarhorn.Bindable (>= 1.0.0-beta7)

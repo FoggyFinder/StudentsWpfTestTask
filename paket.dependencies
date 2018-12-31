@@ -1,0 +1,9 @@
+source https://dotnet.myget.org/F/dotnet-core/
+source https://api.nuget.org/v3/index.json
+
+nuget FSharp.Core 4.5.4 prerelease restriction: >= net472
+nuget FSharp.Data 3.0.0 prerelease restriction: >= net472
+nuget FsXaml.Wpf 3.1.6 prerelease restriction: >= net45
+nuget Gjallarhorn 1.2.3 prerelease restriction: >= net472
+nuget Gjallarhorn.Bindable 1.0.0-beta7 prerelease restriction: >= net472
+nuget Gjallarhorn.Bindable.Wpf 1.0.0-beta7 prerelease restriction: >= net472
